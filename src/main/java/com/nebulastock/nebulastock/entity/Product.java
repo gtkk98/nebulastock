@@ -2,6 +2,7 @@ package com.nebulastock.nebulastock.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -10,6 +11,7 @@ import java.math.BigDecimal;
 @Entity
 @Table(name = "products")
 @Data
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class Product {
@@ -23,6 +25,9 @@ public class Product {
 
     @Column(nullable = false, length = 150)
     private String name;
+
+    @Column(columnDefinition = "TEXT")
+    private String description;
 
     @Column(name = "unit_price", precision = 12, scale = 2)
     private BigDecimal unitPrice; // BigDecimal for money
