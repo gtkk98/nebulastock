@@ -1,4 +1,4 @@
-package dto;
+package com.nebulastock.nebulastock.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Data;

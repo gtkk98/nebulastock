@@ -1,4 +1,4 @@
-package entity;
+package com.nebulastock.nebulastock.entity;
 
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -16,7 +16,7 @@ public class User {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY) // Auto-increment (SERIAL in PostgreSQL)
-    private Long id;
+    private Integer id;
 
     @Column(unique = true, nullable = false, length = 50)
     private String username;

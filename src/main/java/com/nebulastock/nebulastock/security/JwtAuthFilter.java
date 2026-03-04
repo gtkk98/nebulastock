@@ -1,4 +1,4 @@
-package security;
+package com.nebulastock.nebulastock.security;
 
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;

@@ -1,6 +1,6 @@
-package repository;
+package com.nebulastock.nebulastock.repository;
 
-import entity.User;
+import com.nebulastock.nebulastock.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 

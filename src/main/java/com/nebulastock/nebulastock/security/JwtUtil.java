@@ -1,4 +1,4 @@
-package security;
+package com.nebulastock.nebulastock.security;
 
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.JwtException;
@@ -12,7 +12,7 @@ import java.util.Date;
 public class JwtUtil {
 
     // Secret key for signing tokens — in production, load from environment variable!
-    private static final String SECRET = "nebulastock-secret";
+    private static final String SECRET = "nebulastock-super-secret-key-for-jwt-signing-2024-ifs-project-secure!!";
     private static final long EXPIRATION_TIME = 864_000_000; // 24 hours in milliseconds
 
     private SecretKey getSigningKey() {

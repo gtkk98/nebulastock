@@ -1,4 +1,4 @@
-package dto;
+package com.nebulastock.nebulastock.dto;
 
 import jakarta.validation.constraints.NotBlank;
 import lombok.Data;

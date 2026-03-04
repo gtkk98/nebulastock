@@ -1,16 +1,16 @@
-package service;
+package com.nebulastock.nebulastock.service;
 
-import dto.AuthResponse;
-import dto.LoginRequest;
-import dto.RegisterRequest;
-import entity.User;
-import exception.ApiException;
+import com.nebulastock.nebulastock.dto.AuthResponse;
+import com.nebulastock.nebulastock.dto.LoginRequest;
+import com.nebulastock.nebulastock.dto.RegisterRequest;
+import com.nebulastock.nebulastock.entity.User;
+import com.nebulastock.nebulastock.exception.ApiException;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
-import repository.UserRepository;
-import security.JwtUtil;
+import com.nebulastock.nebulastock.repository.UserRepository;
+import com.nebulastock.nebulastock.security.JwtUtil;
 
 @Service // Marks this as a Spring service Bean
 @RequiredArgsConstructor
