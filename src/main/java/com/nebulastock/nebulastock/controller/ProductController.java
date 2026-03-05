@@ -19,7 +19,7 @@ public class ProductController {
 
     //Only Admin can create post
     @PostMapping
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public ResponseEntity<ProductResponse> create(@Valid @RequestBody ProductRequest request) {
         return ResponseEntity.status(HttpStatus.CREATED).body(productService.create(request));
     }
@@ -41,7 +41,7 @@ public class ProductController {
 
     // Only ADMIN or MANAGER can update
     @PutMapping("/{id}")
-    @PreAuthorize("hasAnyRole('ADMIN', 'MANAGER')")
+    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_MANAGER')")
     public ResponseEntity<ProductResponse> update(
             @PathVariable Integer id,
             @Valid @RequestBody ProductRequest request) {
@@ -50,7 +50,7 @@ public class ProductController {
 
     //Only ADMIN can delete
     @DeleteMapping("/{id}")
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public ResponseEntity<Void> delete(@PathVariable Integer id) {
         productService.delete(id);
         return ResponseEntity.noContent().build(); // 204 No Content — standard for DELETE

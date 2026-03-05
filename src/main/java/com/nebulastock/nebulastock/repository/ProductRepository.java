@@ -16,8 +16,8 @@ public interface ProductRepository extends JpaRepository<Product, Integer> {
     // Custom JPQL query — searches by name OR category, case-insensitive
     // Page<T> return type enables automatic pagination
     @Query("SELECT p FROM Product p WHERE " +
-            "(:search IS NULL OR LOWER(p.name) LIKE LOWER(CONCAT('%', :search, '%'))) AND " +
-            "(:category IS NULL OR LOWER(p.category) = LOWER(:category))")
+            "(:search IS NULL OR LOWER(p.name) LIKE LOWER(CONCAT('%', CAST(:search AS STRING), '%'))) AND " +
+            "(:category IS NULL OR LOWER(p.category) = LOWER (CAST(:category AS STRING)))")
     Page<Product> findWithFilters(
             @Param("search") String search,
             @Param("category") String category,

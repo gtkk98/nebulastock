@@ -1,9 +1,6 @@
 package com.nebulastock.nebulastock.dto.request;
 
-import jakarta.validation.constraints.DecimalMax;
-import jakarta.validation.constraints.DecimalMin;
-import jakarta.validation.constraints.NotBlank;
-import jakarta.validation.constraints.Size;
+import jakarta.validation.constraints.*;
 import lombok.Data;
 
 import java.math.BigDecimal;
@@ -20,7 +17,7 @@ public class ProductRequest {
 
     private String description;
 
-    @NotBlank(message = "Unit price is required")
+    @NotNull(message = "Unit price is required")
     @DecimalMin(value = "0.0", inclusive = false, message = "Price must be greater than 0")
     private BigDecimal unitPrice;
 

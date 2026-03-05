@@ -21,7 +21,7 @@ public class WarehouseController {
     private final WarehouseService warehouseService;
 
     @PostMapping
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public ResponseEntity<WarehouseResponse> create(@Valid @RequestBody WarehouseRequest request) {
         return ResponseEntity.status(HttpStatus.CREATED).body(warehouseService.create(request));
     }
@@ -37,7 +37,7 @@ public class WarehouseController {
     }
 
     @PutMapping("/{id}")
-    @PreAuthorize("hasAnyRole('ADMIN', 'MANAGER')")
+    @PreAuthorize("hasAnyAuthority('ROLE_ADMIN','ROLE_MANAGER')")
     public ResponseEntity<WarehouseResponse> update(
             @PathVariable Integer id,
             @Valid @RequestBody WarehouseRequest request) {
@@ -45,7 +45,7 @@ public class WarehouseController {
     }
 
     @DeleteMapping("/{id}")
-    @PreAuthorize("hasRole('ADMIN')")
+    @PreAuthorize("hasAuthority('ROLE_ADMIN')")
     public ResponseEntity<Void> delete(@PathVariable Integer id) {
         warehouseService.delete(id);
         return ResponseEntity.noContent().build();
