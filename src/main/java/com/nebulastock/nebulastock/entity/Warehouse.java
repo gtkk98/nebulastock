@@ -10,7 +10,7 @@ import org.springframework.http.HttpMethod;
 import java.time.LocalDateTime;
 
 @Entity
-@Table(name = "warehouse")
+@Table(name = "warehouses")
 @Data
 @Builder
 @NoArgsConstructor
@@ -26,9 +26,6 @@ public class Warehouse {
 
     @Column(length = 200)
     private String location;
-
-    @Column(nullable = false, length = 200)
-    private String description;
 
     @Column(name = "created_at")
     private LocalDateTime createdAt;

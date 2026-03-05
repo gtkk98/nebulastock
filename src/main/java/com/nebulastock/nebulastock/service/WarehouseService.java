@@ -20,7 +20,7 @@ public class WarehouseService {
 
     @Transactional
     public WarehouseResponse create(WarehouseRequest request) {
-        if (warehouseRepository.existByName(request.getName())) {
+        if (warehouseRepository.existsByName(request.getName())) {
             throw new ApiException("Warehouse name already exists", HttpStatus.CONFLICT);
         }
         Warehouse warehouse = Warehouse.builder()

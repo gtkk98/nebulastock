@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface WarehouseRepository extends JpaRepository<Warehouse, Integer> {
-    boolean existByName(String name);
+    boolean existsByName(String name);
 }
