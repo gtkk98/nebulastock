@@ -129,10 +129,19 @@ public class InventoryService {
                 .toList();
     }
 
+    public List<InventoryResponse> getLowStock(int threshold) {
+        return inventoryRepository.findLowStock(threshold)
+                .stream()
+                .map(this::toInventoryResponse)
+                .toList();
+    }
+
     public Page<StockMovementResponse> getMovementHistory(
             LocalDateTime from, LocalDateTime to, int page, int size) {
+        String fromStr = from != null ? from.toString() : "null";
+        String toStr = to != null ? to.toString() : "null";
         return stockMovementRepository.findMovementHistory(
-                from, to, PageRequest.of(page, size, Sort.by("movedAt").descending()))
+                fromStr, toStr, PageRequest.of(page, size))
                 .map(this::toMovementResponse);
     }
 
