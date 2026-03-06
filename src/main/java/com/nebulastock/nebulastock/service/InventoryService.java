@@ -138,10 +138,16 @@ public class InventoryService {
 
     public Page<StockMovementResponse> getMovementHistory(
             LocalDateTime from, LocalDateTime to, int page, int size) {
-        String fromStr = from != null ? from.toString() : "null";
-        String toStr = to != null ? to.toString() : "null";
+        String fromStr = from != null
+                ? from.toString().replace('T', ' ')
+                : "1970-01-01 00:00:00";
+        String toStr = to != null
+                ? to.toString().replace('T', ' ')
+                : "9999-12-31 23:59:59";
+
         return stockMovementRepository.findMovementHistory(
-                fromStr, toStr, PageRequest.of(page, size))
+                        fromStr, toStr,
+                        PageRequest.of(page, size))
                 .map(this::toMovementResponse);
     }
 
