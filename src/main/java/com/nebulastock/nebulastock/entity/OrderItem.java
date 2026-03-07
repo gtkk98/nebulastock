@@ -2,6 +2,8 @@ package com.nebulastock.nebulastock.entity;
 
 import jakarta.persistence.*;
 import lombok.*;
+import java.math.BigDecimal;
+
 
 @Entity
 @Table(name = "order_item")
@@ -13,7 +15,7 @@ public class OrderItem {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "order_id", nullable = false)
@@ -27,5 +29,5 @@ public class OrderItem {
     private Integer quantity;
 
     @Column(name = "unit_price", nullable = false)
-    private Double unitPrice;
+    private BigDecimal unitPrice;
 }

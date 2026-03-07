@@ -12,7 +12,7 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 public class WarehouseResponse {
-    private Integer id;
+    private Long id;
     private String name;
     private String location;
     private LocalDateTime createdAt;

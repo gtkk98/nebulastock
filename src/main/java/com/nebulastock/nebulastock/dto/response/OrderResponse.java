@@ -3,6 +3,7 @@ import com.nebulastock.nebulastock.entity.Order.OrderStatus;
 
 import lombok.*;
 
+import java.math.BigDecimal;
 import java.time.LocalDateTime;
 import java.util.List;
 
@@ -12,13 +13,13 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 public class OrderResponse {
-    private Integer id;
-    private Integer warehouseId;
+    private Long id;
+    private Long warehouseId;
     private String warehouseName;
     private String customerName;
     private OrderStatus status;
     private LocalDateTime createdAt;
     private LocalDateTime updatedAt;
     private List<OrderItemResponse> items;
-    private Double totalAmount;
+    private BigDecimal totalAmount;
 }

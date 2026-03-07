@@ -1,19 +1,19 @@
 package com.nebulastock.nebulastock.dto.response;
 
-import lombok.AllArgsConstructor;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
+
+import java.math.BigDecimal;
 
 @Getter
 @Setter
+@Builder
 @NoArgsConstructor
 @AllArgsConstructor
 public class OrderItemResponse {
-    private Integer id;
-    private Integer productId;
+    private Long id;
+    private Long productId;
     private String productName;
     private Integer quantity;
-    private Double unitPrice;
-    private Double subtotal;
+    private BigDecimal unitPrice;
+    private BigDecimal subtotal;
 }

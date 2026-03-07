@@ -58,17 +58,18 @@ CREATE TABLE stock_movements (
 -- ORDERS TABLE
 -- ========================
 CREATE TABLE orders (
-                        id SERIAL PRIMARY KEY,
-                        order_number VARCHAR(50) UNIQUE NOT NULL,
-                        status VARCHAR(30) DEFAULT 'PENDING',
-                        created_by INT REFERENCES users(id),
-                        created_at TIMESTAMP DEFAULT NOW()
+                        id          BIGSERIAL PRIMARY KEY,
+                        warehouse_id BIGINT NOT NULL REFERENCES warehouses(id),
+                        customer_name VARCHAR(255) NOT NULL,
+                        status      VARCHAR(50) NOT NULL DEFAULT 'PENDING',
+                        created_at  TIMESTAMP DEFAULT NOW(),
+                        updated_at  TIMESTAMP DEFAULT NOW()
 );
 
 CREATE TABLE order_items (
-                             id SERIAL PRIMARY KEY,
-                             order_id INT REFERENCES orders(id),
-                             product_id INT REFERENCES products(id),
-                             quantity INT NOT NULL,
-                             unit_price NUMERIC(12,2)
+                             id          BIGSERIAL PRIMARY KEY,
+                             order_id    BIGINT NOT NULL REFERENCES orders(id),
+                             product_id  BIGINT NOT NULL REFERENCES products(id),
+                             quantity    INT NOT NULL,
+                             unit_price  NUMERIC(10,2) NOT NULL
 );

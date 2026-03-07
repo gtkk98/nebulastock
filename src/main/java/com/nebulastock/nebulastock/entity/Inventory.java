@@ -19,7 +19,7 @@ public class Inventory {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private Long id;
 
     // @ManyToOne: Many inventory records can belong to one product
     @ManyToOne(fetch = FetchType.LAZY)
